@@ -49,7 +49,7 @@ dependencies {
     val constraint_layout_version = "2.1.4"
     val retrofit_version = "2.9.0"
     val gson_version = "2.10.1"
-    val hilt_version = "2.45"
+    val hilt_version = "2.47"
     val nav_version = "2.6.0"
 
     // AndroidX
