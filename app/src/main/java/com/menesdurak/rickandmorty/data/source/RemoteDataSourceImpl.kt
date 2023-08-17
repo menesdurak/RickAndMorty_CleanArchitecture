@@ -13,6 +13,7 @@ class RemoteDataSourceImpl @Inject constructor(
         val response = rickAndMortyApi.getLocationsPage(page)
         Resource.Success(response)
     } catch (e: Exception) {
+        println(e)
         Resource.Error(e)
     }
 }

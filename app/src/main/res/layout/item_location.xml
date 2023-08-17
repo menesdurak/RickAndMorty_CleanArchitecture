@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="10dp">
+
+    <TextView
+        android:id="@+id/tvLocationId"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        tools:text="100"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="end|center"/>
+
+    <TextView
+        android:id="@+id/tvLocationName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="Location Name Will Be Here"
+        android:gravity="center"
+        android:textSize="16sp"/>
+
+</LinearLayout>

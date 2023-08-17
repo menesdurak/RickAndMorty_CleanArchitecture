@@ -13,7 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RickAndMortyNetworkModule {
-
     @Provides
     @Singleton
     fun provideRickAndMortyApi(): RickAndMortyApi {
@@ -23,4 +22,5 @@ object RickAndMortyNetworkModule {
             .build()
             .create(RickAndMortyApi::class.java)
     }
+
 }

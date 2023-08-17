@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.menesdurak.rickandmorty.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,6 +18,8 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val locationsViewModel: LocationsViewModel by viewModels()
+
+    private val locationAdapter: LocationAdapter by lazy { LocationAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +35,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         locationsViewModel.getLocationsPage(1)
+
+        with(binding.locationsRecyclerView) {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = locationAdapter
+        }
 
         observeUiState()
     }
@@ -51,7 +59,7 @@ class HomeFragment : Fragment() {
 
                 is HomeUiState.Success -> {
                     binding.progressBar.isVisible = false
-                    binding.textview.text = it.data.results[0].name
+                    locationAdapter.updateList(it.data)
                 }
             }
         }
